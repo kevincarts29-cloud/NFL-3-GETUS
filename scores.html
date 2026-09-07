@@ -1,0 +1,193 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Live Scores — Gridiron Overdrive</title>
+<meta name="description" content="Live NFL scores with real-time status, presented as glowing neon cards — not a boring boxscore table.">
+<link rel="stylesheet" href="assets/css/style.css">
+</head>
+<body>
+<a class="skip-link" href="#main">Skip to content</a>
+
+<header class="gnav">
+  <a href="index.html" class="gnav__mark"><span class="dot"></span>GRIDIRON<span style="color:var(--pink)">/</span>OVERDRIVE</a>
+  <button class="gnav__toggle" data-nav-toggle aria-expanded="false" aria-controls="site-nav" aria-label="Open menu">
+    <span></span><span></span>
+  </button>
+</header>
+
+<nav class="gnav__panel" id="site-nav" data-nav-panel aria-label="Primary">
+  <ul class="gnav__list">
+    <li><a href="index.html"><span class="idx">00</span>Home</a></li>
+    <li><a href="scores.html" aria-current="page"><span class="idx">01</span>Live Scores</a></li>
+    <li><a href="teams.html"><span class="idx">02</span>Teams</a></li>
+    <li><a href="stats.html"><span class="idx">03</span>Stat Lab</a></li>
+    <li><a href="news.html"><span class="idx">04</span>News Feed</a></li>
+  </ul>
+  <div class="gnav__foot">
+  </div>
+</nav>
+
+<main id="main">
+  <section class="pagehero">
+    <span class="eyebrow pagehero__eyebrow">01 / SCOREBOARD</span>
+    <h1 class="pagehero__title">Live Scores.</h1>
+    <p class="pagehero__sub">Every game on the slate, updated as the ball moves. Glow means live — grey means final.</p>
+  </section>
+
+  <section class="scorewrap">
+    <!-- oversized matchup illustration slicing through the background, sits
+         behind every pod via z-index and low opacity -->
+    <svg viewBox="0 0 1000 500" preserveAspectRatio="xMidYMid slice" aria-hidden="true"
+         style="position:absolute; inset:0; width:100%; height:60%; z-index:-1; opacity:0.16; pointer-events:none;">
+      <polygon points="120,460 90,300 160,220 260,210 300,280 270,420 220,460" fill="none" stroke="#00f0ff" stroke-width="3"/>
+      <polygon points="880,460 910,300 840,220 740,210 700,280 730,420 780,460" fill="none" stroke="#ff007f" stroke-width="3"/>
+      <line x1="300" y1="240" x2="700" y2="240" stroke="#2c2c33" stroke-width="1"/>
+      <text x="500" y="270" text-anchor="middle" font-family="JetBrains Mono, monospace" font-size="18" fill="#55555e">VS</text>
+    </svg>
+
+    <div class="scorefilters" role="group" aria-label="Filter games by status">
+      <button class="chip is-active" data-filter="all">All Games</button>
+      <button class="chip" data-filter="live">Live</button>
+      <button class="chip" data-filter="final">Final</button>
+      <button class="chip" data-filter="upcoming">Upcoming</button>
+    </div>
+
+    <div class="scoregrid">
+
+      <article class="scorecard is-live" data-status="live">
+        <div class="scorecard__top">
+          <span class="scorecard__status"><span class="live-dot" aria-hidden="true"></span>LIVE — Q3 08:41</span>
+          <span class="tag">CBS</span>
+        </div>
+        <div class="scorecard__row">
+          <span class="scorecard__team"><b>BUF</b> Bills</span>
+          <span class="scorecard__score lead">24</span>
+        </div>
+        <div class="scorecard__div"></div>
+        <div class="scorecard__row">
+          <span class="scorecard__team"><b>MIA</b> Dolphins</span>
+          <span class="scorecard__score">21</span>
+        </div>
+        <div class="scorecard__foot"><span>Highmark Stadium</span><span>3rd &amp; 4</span></div>
+      </article>
+
+      <article class="scorecard" data-status="final">
+        <div class="scorecard__top">
+          <span class="scorecard__status">FINAL</span>
+          <span class="tag">FOX</span>
+        </div>
+        <div class="scorecard__row">
+          <span class="scorecard__team"><b>KC</b> Chiefs</span>
+          <span class="scorecard__score lead">27</span>
+        </div>
+        <div class="scorecard__div"></div>
+        <div class="scorecard__row">
+          <span class="scorecard__team"><b>DEN</b> Broncos</span>
+          <span class="scorecard__score">20</span>
+        </div>
+        <div class="scorecard__foot"><span>GEHA Field</span><span>Wk 2</span></div>
+      </article>
+
+      <article class="scorecard is-live" data-status="live">
+        <div class="scorecard__top">
+          <span class="scorecard__status"><span class="live-dot" aria-hidden="true"></span>LIVE — Q2 02:15</span>
+          <span class="tag">NBC</span>
+        </div>
+        <div class="scorecard__row">
+          <span class="scorecard__team"><b>DAL</b> Cowboys</span>
+          <span class="scorecard__score">14</span>
+        </div>
+        <div class="scorecard__div"></div>
+        <div class="scorecard__row">
+          <span class="scorecard__team"><b>PHI</b> Eagles</span>
+          <span class="scorecard__score">14</span>
+        </div>
+        <div class="scorecard__foot"><span>AT&amp;T Stadium</span><span>2-minute drill</span></div>
+      </article>
+
+      <article class="scorecard" data-status="final">
+        <div class="scorecard__top">
+          <span class="scorecard__status">FINAL</span>
+          <span class="tag">ESPN</span>
+        </div>
+        <div class="scorecard__row">
+          <span class="scorecard__team"><b>SF</b> 49ers</span>
+          <span class="scorecard__score lead">31</span>
+        </div>
+        <div class="scorecard__div"></div>
+        <div class="scorecard__row">
+          <span class="scorecard__team"><b>SEA</b> Seahawks</span>
+          <span class="scorecard__score">17</span>
+        </div>
+        <div class="scorecard__foot"><span>Levi's Stadium</span><span>Wk 2</span></div>
+      </article>
+
+      <article class="scorecard" data-status="upcoming">
+        <div class="scorecard__top">
+          <span class="scorecard__status">SUN 1:00 PM ET</span>
+          <span class="tag">CBS</span>
+        </div>
+        <div class="scorecard__row">
+          <span class="scorecard__team"><b>BAL</b> Ravens</span>
+          <span class="scorecard__score">—</span>
+        </div>
+        <div class="scorecard__div"></div>
+        <div class="scorecard__row">
+          <span class="scorecard__team"><b>CIN</b> Bengals</span>
+          <span class="scorecard__score">—</span>
+        </div>
+        <div class="scorecard__foot"><span>M&amp;T Bank Stadium</span><span>Wk 3</span></div>
+      </article>
+
+      <article class="scorecard" data-status="upcoming">
+        <div class="scorecard__top">
+          <span class="scorecard__status">SUN 4:25 PM ET</span>
+          <span class="tag">FOX</span>
+        </div>
+        <div class="scorecard__row">
+          <span class="scorecard__team"><b>DET</b> Lions</span>
+          <span class="scorecard__score">—</span>
+        </div>
+        <div class="scorecard__div"></div>
+        <div class="scorecard__row">
+          <span class="scorecard__team"><b>GB</b> Packers</span>
+          <span class="scorecard__score">—</span>
+        </div>
+        <div class="scorecard__foot"><span>Ford Field</span><span>Wk 3</span></div>
+      </article>
+
+    </div>
+  </section>
+</main>
+
+<footer class="gfoot">
+  <div class="gfoot__top">
+    <span class="gfoot__mark">GRIDIRON/OVERDRIVE</span>
+    <div class="gfoot__cols">
+      <div class="gfoot__col">
+        <h4>Explore</h4>
+        <ul>
+          <li><a href="scores.html">Live Scores</a></li>
+          <li><a href="teams.html">Teams</a></li>
+          <li><a href="stats.html">Stat Lab</a></li>
+          <li><a href="news.html">News Feed</a></li>
+        </ul>
+      </div>
+      <div class="gfoot__col">
+        <h4>Site</h4>
+        <ul>
+        </ul>
+      </div>
+    </div>
+  </div>
+  <div class="gfoot__bottom">
+    <span>© 2026 Gridiron Overdrive. Fan-made, not affiliated with the NFL.</span>
+    <span>Built for the game.</span>
+  </div>
+</footer>
+
+<script src="assets/main/main.js"></script>
+</body>
+</html>

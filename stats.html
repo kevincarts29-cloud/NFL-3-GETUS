@@ -1,0 +1,226 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Stat Lab — Gridiron Overdrive</title>
+<meta name="description" content="League-leading efficiency numbers presented as a cybernetic dashboard with neon progress bars.">
+<link rel="stylesheet" href="assets/css/style.css">
+</head>
+<body>
+<a class="skip-link" href="#main">Skip to content</a>
+
+<header class="gnav">
+  <a href="index.html" class="gnav__mark"><span class="dot"></span>GRIDIRON<span style="color:var(--pink)">/</span>OVERDRIVE</a>
+  <button class="gnav__toggle" data-nav-toggle aria-expanded="false" aria-controls="site-nav" aria-label="Open menu">
+    <span></span><span></span>
+  </button>
+</header>
+
+<nav class="gnav__panel" id="site-nav" data-nav-panel aria-label="Primary">
+  <ul class="gnav__list">
+    <li><a href="index.html"><span class="idx">00</span>Home</a></li>
+    <li><a href="scores.html"><span class="idx">01</span>Live Scores</a></li>
+    <li><a href="teams.html"><span class="idx">02</span>Teams</a></li>
+    <li><a href="stats.html" aria-current="page"><span class="idx">03</span>Stat Lab</a></li>
+    <li><a href="news.html"><span class="idx">04</span>News Feed</a></li>
+  </ul>
+  <div class="gnav__foot">
+  </div>
+</nav>
+
+<main id="main">
+  <section class="pagehero">
+    <span class="eyebrow pagehero__eyebrow">03 / STAT LAB</span>
+    <h1 class="pagehero__title glitch" data-text="Stat Lab.">Stat Lab.</h1>
+    <p class="pagehero__sub">Efficiency, explosiveness and pressure — read at a glance, not buried in a spreadsheet tab.</p>
+  </section>
+
+  <section class="dash">
+    <div class="stats-toolbar" aria-label="Stat Lab controls">
+      <div>
+        <span class="eyebrow">LIVE DATASET</span>
+        <strong>2024 REGULAR SEASON</strong>
+        <small>Updated 12 minutes ago · 1,842 player records</small>
+      </div>
+      <label>
+        <span>Week</span>
+        <select data-week-filter aria-label="Select NFL week">
+          <option value="17">Week 17</option>
+          <option value="16">Week 16</option>
+          <option value="15">Week 15</option>
+          <option value="season">Season to date</option>
+        </select>
+      </label>
+      <label class="stats-search">
+        <span>Find player or team</span>
+        <input type="search" data-stat-search placeholder="e.g. Allen or Buffalo" autocomplete="off">
+      </label>
+    </div>
+
+    <div class="stats-status" role="status" aria-live="polite">
+      <span class="live-dot" aria-hidden="true"></span>
+      Showing league leaders · Minimum 100 snaps
+    </div>
+
+    <div class="dash__grid">
+
+      <div class="dashcard dashcard--wide dashcard--badged" data-stat-card="offense">
+        <span class="dashcard__badge" aria-hidden="true">
+          <svg viewBox="0 0 48 48"><circle cx="24" cy="16" r="9" fill="none" stroke="#00f0ff" stroke-width="2.5"/><path d="M6,42 C6,30 14,24 24,24 C34,24 42,30 42,42" fill="none" stroke="#00f0ff" stroke-width="2.5"/></svg>
+        </span>
+        <div class="dashcard__head">
+          <h3 class="glitch" data-text="Offensive EPA / Play — Top 5">Offensive EPA / Play — Top 5</h3>
+          <span class="tag" data-week-label>Week 17</span>
+        </div>
+
+        <div class="stat-row">
+          <div class="stat-row__label"><b>Detroit Lions</b><span>0.21 EPA</span></div>
+          <div class="bar"><div class="bar__fill" data-fill="92"></div></div>
+        </div>
+        <div class="stat-row">
+          <div class="stat-row__label"><b>Buffalo Bills</b><span>0.19 EPA</span></div>
+          <div class="bar"><div class="bar__fill" data-fill="86"></div></div>
+        </div>
+        <div class="stat-row">
+          <div class="stat-row__label"><b>San Francisco 49ers</b><span>0.17 EPA</span></div>
+          <div class="bar"><div class="bar__fill pink" data-fill="79"></div></div>
+        </div>
+        <div class="stat-row">
+          <div class="stat-row__label"><b>Kansas City Chiefs</b><span>0.15 EPA</span></div>
+          <div class="bar"><div class="bar__fill" data-fill="71"></div></div>
+        </div>
+        <div class="stat-row">
+          <div class="stat-row__label"><b>Philadelphia Eagles</b><span>0.14 EPA</span></div>
+          <div class="bar"><div class="bar__fill pink" data-fill="68"></div></div>
+        </div>
+      </div>
+
+      <div class="dashcard" data-stat-card="offense">
+        <div class="dashcard__head"><h3>Explosive Plays</h3></div>
+        <div class="bignum">184<small>20+ yard gains, league-wide this week</small></div>
+      </div>
+
+      <div class="dashcard" data-stat-card="defense">
+        <div class="dashcard__head"><h3>Avg. Pressure Rate</h3></div>
+        <div class="bignum">31.4<small>% of dropbacks pressured</small></div>
+      </div>
+
+      <div class="dashcard" data-stat-card="offense">
+        <div class="dashcard__head"><h3>Red Zone TD%</h3></div>
+        <div class="bignum">58.2<small>league-wide conversion rate</small></div>
+      </div>
+
+      <div class="dashcard dashcard--wide dashcard--badged" data-stat-card="defense">
+        <span class="dashcard__badge" aria-hidden="true">
+          <svg viewBox="0 0 48 48"><circle cx="24" cy="16" r="9" fill="none" stroke="#ff007f" stroke-width="2.5"/><path d="M6,42 C6,30 14,24 24,24 C34,24 42,30 42,42" fill="none" stroke="#ff007f" stroke-width="2.5"/></svg>
+        </span>
+        <div class="dashcard__head">
+          <h3 class="glitch" data-text="Defensive Pressure Rate — Top 5">Defensive Pressure Rate — Top 5</h3>
+          <span class="tag" data-week-label>Week 17</span>
+        </div>
+
+        <div class="stat-row">
+          <div class="stat-row__label"><b>Pittsburgh Steelers</b><span>41.2%</span></div>
+          <div class="bar"><div class="bar__fill pink" data-fill="95"></div></div>
+        </div>
+        <div class="stat-row">
+          <div class="stat-row__label"><b>Baltimore Ravens</b><span>38.6%</span></div>
+          <div class="bar"><div class="bar__fill pink" data-fill="88"></div></div>
+        </div>
+        <div class="stat-row">
+          <div class="stat-row__label"><b>Cleveland Browns</b><span>36.9%</span></div>
+          <div class="bar"><div class="bar__fill" data-fill="83"></div></div>
+        </div>
+        <div class="stat-row">
+          <div class="stat-row__label"><b>Dallas Cowboys</b><span>34.1%</span></div>
+          <div class="bar"><div class="bar__fill" data-fill="75"></div></div>
+        </div>
+        <div class="stat-row">
+          <div class="stat-row__label"><b>New York Jets</b><span>33.5%</span></div>
+          <div class="bar"><div class="bar__fill pink" data-fill="72"></div></div>
+        </div>
+      </div>
+
+      <div class="dashcard dashcard--wide" data-stat-card="passing">
+        <div class="dashcard__head">
+          <h3>Passer Rating Under Pressure</h3>
+          <span class="tag">Qualified QBs</span>
+        </div>
+        <div class="stat-row">
+          <div class="stat-row__label"><b>P. Mahomes</b><span>98.4</span></div>
+          <div class="bar"><div class="bar__fill" data-fill="91"></div></div>
+        </div>
+        <div class="stat-row">
+          <div class="stat-row__label"><b>J. Allen</b><span>94.7</span></div>
+          <div class="bar"><div class="bar__fill" data-fill="87"></div></div>
+        </div>
+        <div class="stat-row">
+          <div class="stat-row__label"><b>J. Goff</b><span>89.2</span></div>
+          <div class="bar"><div class="bar__fill pink" data-fill="80"></div></div>
+        </div>
+      </div>
+
+    </div>
+
+    <section class="leaderboard" aria-labelledby="leaderboard-title">
+      <div class="dashcard__head">
+        <div>
+          <span class="eyebrow">PLAYER INDEX</span>
+          <h2 id="leaderboard-title">Passing efficiency leaders</h2>
+        </div>
+        <label class="leaderboard-sort">
+          <span>Sort by</span>
+          <select data-sort-players aria-label="Sort player leaderboard">
+            <option value="epa">EPA / play</option>
+            <option value="rating">Passer rating</option>
+            <option value="yards">Passing yards</option>
+          </select>
+        </label>
+      </div>
+      <div class="table-scroll">
+        <table class="leaderboard__table">
+          <thead><tr><th scope="col">Rank</th><th scope="col">Player</th><th scope="col">Team</th><th scope="col">EPA / play</th><th scope="col">Rating</th><th scope="col">Yards</th></tr></thead>
+          <tbody data-player-rows>
+            <tr data-player="jared goff detroit lions" data-epa="0.31" data-rating="108.4" data-yards="4575"><td>01</td><th scope="row">Jared Goff</th><td>DET</td><td>+0.31</td><td>108.4</td><td>4,575</td></tr>
+            <tr data-player="josh allen buffalo bills" data-epa="0.29" data-rating="101.8" data-yards="4306"><td>02</td><th scope="row">Josh Allen</th><td>BUF</td><td>+0.29</td><td>101.8</td><td>4,306</td></tr>
+            <tr data-player="lamar jackson baltimore ravens" data-epa="0.28" data-rating="102.7" data-yards="3678"><td>03</td><th scope="row">Lamar Jackson</th><td>BAL</td><td>+0.28</td><td>102.7</td><td>3,678</td></tr>
+            <tr data-player="patrick mahomes kansas city chiefs" data-epa="0.24" data-rating="98.4" data-yards="4839"><td>04</td><th scope="row">Patrick Mahomes</th><td>KC</td><td>+0.24</td><td>98.4</td><td>4,839</td></tr>
+            <tr data-player="jalen hurts philadelphia eagles" data-epa="0.22" data-rating="97.5" data-yards="3701"><td>05</td><th scope="row">Jalen Hurts</th><td>PHI</td><td>+0.22</td><td>97.5</td><td>3,701</td></tr>
+          </tbody>
+        </table>
+        <p class="empty-state" data-empty-state hidden>No matching players. Try a different name or team.</p>
+      </div>
+    </section>
+  </section>
+</main>
+
+<footer class="gfoot">
+  <div class="gfoot__top">
+    <span class="gfoot__mark">GRIDIRON/OVERDRIVE</span>
+    <div class="gfoot__cols">
+      <div class="gfoot__col">
+        <h4>Explore</h4>
+        <ul>
+          <li><a href="scores.html">Live Scores</a></li>
+          <li><a href="teams.html">Teams</a></li>
+          <li><a href="stats.html">Stat Lab</a></li>
+          <li><a href="news.html">News Feed</a></li>
+        </ul>
+      </div>
+      <div class="gfoot__col">
+        <h4>Site</h4>
+        <ul>
+        </ul>
+      </div>
+    </div>
+  </div>
+  <div class="gfoot__bottom">
+    <span>© 2026 Gridiron Overdrive. Fan-made, not affiliated with the NFL.</span>
+    <span>Built for the game.</span>
+  </div>
+</footer>
+
+<script src="assets/main/main.js"></script>
+</body>
+</html>
