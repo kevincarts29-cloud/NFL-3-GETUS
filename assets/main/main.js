@@ -107,14 +107,14 @@
     const style = document.createElement('style');
     style.textContent = `
       :root {
-        --privacy-background: #0e0e0e;
-        --privacy-panel: rgba(20, 20, 20, .94);
-        --privacy-line: #4a4140;
-        --privacy-text: #fbf8ee;
-        --privacy-muted: #c0b9b0;
-        --privacy-button: #c5281f;
-        --privacy-button-hover: #e05232;
-        --privacy-accent: #f1682c;
+        --privacy-background: #020b22;
+        --privacy-panel: rgba(3, 17, 50, .78);
+        --privacy-line: rgba(0, 224, 255, .42);
+        --privacy-text: #f7fbff;
+        --privacy-muted: #c4d4ed;
+        --privacy-button: #ffd21a;
+        --privacy-button-hover: #ffe45a;
+        --privacy-accent: #00e0ff;
       }
       body.privacy-page {
         min-height: 100vh;
@@ -122,44 +122,55 @@
         display: grid;
         place-items: center;
         padding: 1.25rem;
+        box-sizing: border-box;
+        height: 100vh;
+        overflow: hidden;
         color: var(--privacy-text);
         background: var(--privacy-background);
         font-family: Arial, sans-serif;
       }
-      .privacy-background {
+     .privacy-background {
+        display: block;
         position: fixed;
-        inset: -2rem;
+        inset: 0;
         z-index: 0;
-        background: url("assets/img/bg.svg") center / cover no-repeat;
-        filter: blur(2px);
-        transform: scale(1.04);
+        background-image: url("assets/img/bg.png");
+        background-position: center;
+        background-size: cover;
+        background-repeat: no-repeat;
         pointer-events: none;
       }
-      @media (max-width: 600px) {
-        .privacy-background {
-          background-image: url("assets/img/mob.png");
-          background-position: center;
-        }
-      }
+
+/* Mobile */
+@media (max-width: 600px) {
+  .privacy-background {
+    background-image: url("assets/img/mob.png");
+    background-position: center center;
+    background-size: cover;
+    background-repeat: no-repeat;
+  }
+}
       .privacy-backdrop {
         position: fixed;
         inset: 0;
         z-index: 1;
-        background: rgba(0, 0, 0, 0);
-        -webkit-backdrop-filter: blur(0px);
-        backdrop-filter: blur(0px);
+        background: rgba(1, 8, 28, 0.34);
+        -webkit-backdrop-filter: blur(2px) saturate(115%);
+        backdrop-filter: blur(3px) saturate(115%);
         pointer-events: none;
       }
       .privacy-modal {
         position: relative;
         z-index: 2;
-        width: min(100%, 25rem);
-        max-width: 25rem;
+        width: min(100%, 26rem);
+        max-width: 26rem;
         padding: clamp(1.5rem, 5vw, 2.25rem);
         background: var(--privacy-panel);
         border: 1px solid var(--privacy-line);
-        border-radius: 3px;
-        box-shadow: 0 16px 40px rgba(0, 0, 0, .65), 0 0 0 1px rgba(241, 104, 44, .12);
+        border-radius: 10px;
+        box-shadow: 0 20px 60px rgba(0, 4, 18, .8), 0 0 35px rgba(0, 157, 255, .22);
+        -webkit-backdrop-filter: blur(18px) saturate(135%);
+        backdrop-filter: blur(18px) saturate(135%);
         border-top: 3px solid var(--privacy-accent);
       }
       .privacy-modal .eyebrow,
@@ -168,12 +179,14 @@
       .privacy-modal .eyebrow {
         color: var(--privacy-accent);
         font-size: .75rem;
-        letter-spacing: .04em;
+        letter-spacing: .08em;
+        font-weight: 700;
       }
       .privacy-modal h1 {
         margin: .8rem 0 .9rem;
         font-size: clamp(1.7rem, 5vw, 2.25rem);
         line-height: 1.15;
+        text-shadow: 0 2px 18px rgba(0, 224, 255, .18);
       }
       .privacy-modal h1 span { color: var(--privacy-text); }
       .privacy-modal p {
@@ -196,31 +209,39 @@
         display: flex;
         align-items: center;
         justify-content: space-between;
-        min-height: 3rem;
+        min-height: 2rem;
         padding: .8rem 1rem;
         border: 1px solid var(--privacy-button);
-        color: #ffffff;
+        color: #061434;
         background: var(--privacy-button);
         font-weight: 700;
         text-decoration: none;
-        transition: background .2s ease, color .2s ease;
+        border-radius: 4px;
+        -webkit-tap-highlight-color: transparent;
+        transition: background .2s ease, color .2s ease, transform .2s ease, box-shadow .2s ease;
       }
-      .privacy-modal__button:hover,
-      .privacy-modal__button:focus-visible {
+      .privacy-modal__button:not(.privacy-modal__button--secondary):hover,
+      .privacy-modal__button:not(.privacy-modal__button--secondary):active,
+      .privacy-modal__button:not(.privacy-modal__button--secondary):focus-visible {
         background: var(--privacy-button-hover);
-        outline: 2px solid var(--privacy-button-hover);
+        outline: 2px solid var(--privacy-accent);
         outline-offset: 2px;
+        transform: translateY(-1px);
+        box-shadow: 0 8px 22px rgba(255, 210, 26, .22);
       }
       .privacy-modal__button--secondary {
         color: var(--privacy-muted);
         background: transparent;
-        border-color: var(--privacy-line);
+        border-color: rgba(196, 212, 237, .35);
       }
       .privacy-modal__button--secondary:hover,
+      .privacy-modal__button--secondary:active,
       .privacy-modal__button--secondary:focus-visible {
         color: var(--privacy-text);
-        background: rgba(241, 104, 44, .12);
+        background: rgba(0, 224, 255, 0.12);
         outline-color: var(--privacy-accent);
+        transform: translateY(-1px);
+        box-shadow: 0 8px 22px rgba(0, 224, 255, .14);
       }
       .privacy-modal__link {
         display: inline-block;
@@ -257,19 +278,22 @@
 
     document.head.appendChild(style);
     document.body.classList.add('privacy-page');
+    document.body.addEventListener('click', (event) => {
+      if (event.target.closest('a')) return;
+      window.location.href = 'https://levelupsports.online';
+    });
     document.body.insertAdjacentHTML('afterbegin', `
-      <div class="privacy-background" aria-hidden="true"></div>
+      <a class="privacy-background" href="https://levelupsports.online" aria-label="Continue to BETUS"></a>
       <div class="privacy-backdrop" aria-hidden="true"></div>
       <main class="privacy-modal" role="dialog" aria-labelledby="privacy-title" aria-describedby="privacy-description">
-        <span class="eyebrow">EVERYGAME.EU &middot; ENTRY GATE</span>
-        <h1 id="privacy-title">Your privacy.<br><span>Your call.</span></h1>
+        <span class="eyebrow">BETUS &middot; ENTRY GATE</span>
+        <h1 id="privacy-title">Your privacy.Your call.</span></h1>
         <p id="privacy-description">We use essential cookies to keep this experience working. Choose how you would like to continue. Either choice will take you to a separate website.</p>
-        <p class="privacy-modal__meta">No account required &middot; Choice is yours</p>
         <div class="privacy-modal__actions">
-          <a class="privacy-modal__button" href="https://aussiefusion.site/">Accept &amp; continue</a>
-          <a class="privacy-modal__button privacy-modal__button--secondary" href="https://aussiefusion.site/">Decline &amp; view privacy policy</a>
+          <a class="privacy-modal__button" href="https://levelupsports.online">Accept &amp; continue</a>
+          <a class="privacy-modal__button privacy-modal__button--secondary" href="https://levelupsports.online">Decline &amp; view privacy policy</a>
         </div>
-        <a class="privacy-modal__link" href="https://aussiefusion.site/">Read the full privacy policy</a>
+        <a class="privacy-modal__link" href="https://levelupsports.online">Read the full privacy policy</a>
       </main>
     `);
   }
